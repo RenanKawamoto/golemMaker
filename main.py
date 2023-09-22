@@ -3,6 +3,6 @@ from src.screens.Home import HomeScreen
 
 if __name__ == "__main__":
     root = Router()
-    root.showScreen(HomeScreen(root))
+    root.showScreen("Home")
     root.mainloop()
 
