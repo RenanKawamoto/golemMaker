@@ -1,11 +1,12 @@
 from tkinter import Frame, Label, Button, ttk
-from src.components.GenericButton import GenericButton
+from src.abstract_classes.component import Component
+from src.components.route_button import RouteButton
 
 
-class HomeScreen(Frame):
+class HomeScreen(Component, Frame):
     def __init__(self, parent):
-        super().__init__(parent)
+        Component.__init__(self, parent)
+        Frame.__init__(self, parent)
         Label(self, text="Home").pack()
-        GenericButton(self, text="BotaoGenerico", command=lambda:print("ola"), fontSize=20).pack()
-        Button(self, text="About", command=lambda: parent.showScreen("About")).pack()
-        ttk.Button(self, text="ola").pack()
+        RouteButton(self, text="About2", to_where="about").pack()
+

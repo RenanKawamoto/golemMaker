@@ -1,8 +1,8 @@
-from src.data.Router import Router
-from src.screens.Home import HomeScreen
+from src.data.router import Router
+from src.screens.home import HomeScreen
 
 if __name__ == "__main__":
     root = Router()
-    root.showScreen("Home")
+    root.show_screen("home")
     root.mainloop()
 
