@@ -5,7 +5,7 @@ class Router(Tk):
     def __init__(self):
         super().__init__()
         self.parent_router = self
-        with open("src/screens/screens_list.json") as file:
+        with open("config/screens_list.json") as file:
             self.screens_list = json.load(file)
         self.title("Golem Maker")
         self.geometry("500x500")
@@ -17,7 +17,7 @@ class Router(Tk):
             self.current_screen.destroy()
         
         if screen_name in self.screens_list:
-            default_path = "src.screens."
+            default_path = "src.components.screens."
             screen_name_class = self.screens_list[screen_name] + "Screen"
 
             import_screen_file = __import__(default_path + screen_name, fromlist=[screen_name_class])
