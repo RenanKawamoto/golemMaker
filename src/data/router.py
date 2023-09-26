@@ -1,11 +1,15 @@
+from dotenv import load_dotenv
+from os import getenv
 from tkinter import Tk
 import json
+
+load_dotenv()
 
 class Router(Tk):
     def __init__(self):
         super().__init__()
         self.parent_router = self
-        with open("config/screens_list.json") as file:
+        with open(getenv("SCREENS_LIST_PATH")) as file:
             self.screens_list = json.load(file)
         self.title("Golem Maker")
         self.geometry("500x500")
