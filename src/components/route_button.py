@@ -1,5 +1,5 @@
 from tkinter import ttk
-from src.abstract_classes.component import Component
+from src.components.component import Component
 
 class RouteButton(Component, ttk.Button):
     def __init__(self, parent, text, to_where):
