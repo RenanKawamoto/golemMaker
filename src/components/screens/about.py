@@ -1,7 +1,13 @@
-from tkinter import Frame, Label, Button
+from tkinter.ttk import Frame, Label
+from src.abstract_classes.component import Component
+from src.components.route_button import RouteButton
 
-class AboutScreen(Frame):
+class AboutScreen(Component, Frame):
     def __init__(self, parent):
-        super().__init__(parent)
+        Component.__init__(self, parent)
+        Frame.__init__(self, parent)
         Label(self, text="About").pack()
-        Button(self, text="Home", command=lambda: parent.show_screen("home")).pack()
+        RouteButton(self, text="Home", to_where="home").pack()
+
+    def local_style_config(self):
+        ...
