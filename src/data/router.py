@@ -1,9 +1,6 @@
-from dotenv import load_dotenv
 from os import getenv
 from tkinter import Tk, ttk
 import json
-
-load_dotenv()
 
 class Router(Tk):
     def __init__(self):
