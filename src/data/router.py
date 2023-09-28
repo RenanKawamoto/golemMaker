@@ -9,7 +9,7 @@ class Router(Tk):
         with open(getenv("SCREENS_LIST_PATH")) as file:
             self.screens_list = json.load(file)
         self.title("Golem Maker")
-        self.geometry("500x500")
+        self.geometry(getenv("WINDOW_WIDTH")+"x"+getenv("WINDOW_HEIGHT"))
         self.resizable(False, False)
         self.current_screen = None
         self.style = ttk.Style(self)
