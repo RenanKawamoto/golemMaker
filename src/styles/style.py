@@ -29,7 +29,8 @@ def global_style_config(root):
     global_style.configure("TLabel", background=FIRST_COLOR)
     #-----------------------------------------------------------#
     
-    #--------------------------TLabel---------------------------#
-    global_style.configure("TLabel", background=FIRST_COLOR)
+    #-------------------------H1.TLabel-------------------------#
+    global_style.configure("H1.TLabel", background=FIRST_COLOR, foreground=THIRD_COLOR, font=("Josefin Sans", 18, "bold"))
     #-----------------------------------------------------------#
+    
     
