@@ -19,6 +19,6 @@ class RouteButton(Component, Button):
 
     def local_style_config(self):
         self.local_style.configure(
-            "RouteButton.TButton", 
-            padding=20
+            "RouteButton.TButton",
+            font=("Josefin Sans", 25, "bold")
         )

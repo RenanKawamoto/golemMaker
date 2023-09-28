@@ -12,14 +12,13 @@ def global_style_config(root):
     #-----------------------------------------------------------#
     
     #--------------------------TButton--------------------------#
-    global_style.configure("TButton", background="#C08261", foreground="#F2ECBE", relief="flat")
+    global_style.configure("TButton", background="#C08261", foreground="#F2ECBE", relief="flat", font=("calibri", 15))
     
     global_style.map("TButton",
         background=[("active", "#E2C799")],
         foreground=[("active", "white")],
     )
     #-----------------------------------------------------------#
-    
     
     #--------------------------TLabel---------------------------#
     global_style.configure("TLabel", background="#F2ECBE")
