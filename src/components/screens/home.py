@@ -8,7 +8,7 @@ class HomeScreen(Component, Frame):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
         Label(self, text="Golem Maker", style="Title.H1.TLabel").place(relx=0.5, rely=0, anchor="n")
-        RouteButton(self, text="Sobre", to_where="sobre").place(relx=0.5, rely=0.9, anchor="s")
+        RouteButton(self, text="Sobre", to_where="about").place(relx=0.5, rely=0.9, anchor="s")
 
     def local_style_config(self):
         self.local_style.configure(
