@@ -7,7 +7,4 @@ class HomeScreen(Component, Frame):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
         Label(self, text="Home").pack()
-        RouteButton(self, text="Sobre", to_where="sobre").pack()
-
-    def local_style_config(self):
-        ...
+        RouteButton(self, text="Sobre", to_where="sobre").place(relx=0.5, rely=1, anchor="s")

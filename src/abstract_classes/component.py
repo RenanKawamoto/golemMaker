@@ -14,6 +14,5 @@ class Component(ABC):
                 return _current_parent
             _current_parent = _current_parent.parent
 
-    @abstractmethod
     def local_style_config(self):
         ...
