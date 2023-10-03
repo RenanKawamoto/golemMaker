@@ -13,7 +13,7 @@ class AboutScreen(Component, Frame):
         "tarefas repetitivas. Ele se destina a simplificar e agilizar a execução dessas tarefas por meio da " 
         "criação de scripts personalizados, permitindo que você economize tempo e esforço significativos no "
         "seu dia a dia\"").place(relx=0.5, rely=0.18, anchor="n")
-        Label(self, style="SubTitle.TLabel", text="Criado por: Renan Kawamoto da Rocha").place(relx=0.5, rely=0.7, anchor="center")
+        Label(self, style="Subtitle.TLabel", text="Criado por: Renan Kawamoto da Rocha").place(relx=0.5, rely=0.7, anchor="center")
         RouteButton(self, text="Voltar", to_where="home").place(relx=0.5, rely=0.9, anchor="s")
 
     def local_style_config(self):
