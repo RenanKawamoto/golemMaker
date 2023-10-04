@@ -1,23 +1,38 @@
+import tkinter as tk
+from tkinter.ttk import Frame, Scrollbar, Label
 from src.abstract_classes.component import Component
-from tkinter.tkk import Frame, Canvas
-
-from tkinter import *
-root=Tk()
-frame=Frame(root,width=300,height=300)
-frame.pack(expand=True, fill=BOTH) #.grid(row=0,column=0)
-canvas=Canvas(frame,bg='#FFFFFF',width=300,height=300,scrollregion=(0,0,500,500))
-vbar=Scrollbar(frame,orient=VERTICAL)
-vbar.pack(side=RIGHT,fill=Y)
-vbar.config(command=canvas.yview)
-canvas.config(width=300,height=300)
-canvas.config(yscrollcommand=vbar.set)
-canvas.pack(side=LEFT,expand=True,fill=BOTH)
-
-root.mainloop()
 
 class ScrollableCanvas(Component, Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, width, height):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
         
-        cavas = Canvas(self)
+        self.canvas = tk.Canvas(self, width=width, height=height)
+        self.canvas.pack(side="left", fill="both", expand=True)
+
+        self.vertical_scrollbar = Scrollbar(self, orient="vertical", command=self.canvas.yview)
+        self.vertical_scrollbar.pack(side="right", fill="y", expand=True)
+
+        self.canvas.configure(yscrollcommand=self.vertical_scrollbar.set)
+        
+        self.inner_frame = Frame(self.canvas)
+        self.canvas.create_window((0, 0), window=self.inner_frame, anchor="nw")
+        
+        for i in range(1, 100):
+            label = Label(self.inner_frame, text=i)
+            label.pack()
+
+        self.update_idletasks()
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
+
+        # Adicione eventos de rolagem do mouse
+        self.canvas.bind("<MouseWheel>", self.on_mousewheel)
+
+
+    def on_mousewheel(self, event):
+        # Rolar para cima
+        if event.num == 4 or event.delta == 120:
+            self.canvas.yview_scroll(-1, "units")
+        # Rolar para baixo
+        elif event.num == 5 or event.delta == -120:
+            self.canvas.yview_scroll(1, "units")
