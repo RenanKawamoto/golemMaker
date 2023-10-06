@@ -15,19 +15,23 @@ class ScrollableCanvas(Component, Frame):
 
         self.canvas.configure(yscrollcommand=self.vertical_scrollbar.set)
         
-        self.inner_frame = Frame(self.canvas, style="InnerFrame.TFrame")
+        self.inner_frame = Frame(self.canvas, width=width, height=height, style="InnerFrame.TFrame")
         
         self.canvas.create_window((0, 0), window=self.inner_frame, anchor="nw")
 
         self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)	
         
         self.local_style_config()
-      
-        
-      
-    def add_component_in_canvas(self, component, *args, **kwargs):
+              
+    def add_component_in_canvas_pack(self, component, side, *args, **kwargs):
         _component = component(self.inner_frame, *args, **kwargs)
-        _component.pack(side="top", fill="x", expand=True)
+        _component.pack(side=side, fill="x", expand=True)
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
+        self.update_idletasks()
+
+    def add_component_in_canvas_grid(self, component, row, column, sticky="nsew", padx=0, pady=0, *args, **kwargs):
+        _component = component(self.inner_frame, *args, **kwargs)
+        _component.grid(row=row, column=column, sticky=sticky, padx=padx, pady=pady)
         self.canvas.config(scrollregion=self.canvas.bbox("all"))
         self.update_idletasks()
 
@@ -39,3 +43,7 @@ class ScrollableCanvas(Component, Frame):
 
     def local_style_config(self):
         self.canvas.configure(bg=getenv("SECOND_COLOR"),  highlightthickness  = 0)
+        self.local_style.configure(
+            "InnerFrame.TFrame",
+            background = getenv("SECOND_COLOR")
+        )
