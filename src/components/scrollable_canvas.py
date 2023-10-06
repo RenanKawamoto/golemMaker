@@ -38,14 +38,4 @@ class ScrollableCanvas(Component, Frame):
             self.canvas.yview_scroll(1, "units")
 
     def local_style_config(self):
-        self.canvas.configure(bg=getenv("SECOND_COLOR"))
-        '''
-        self.local_style.configure("Vertical.TScrollbar",
-                background="gray",  # Cor de fundo
-                troughcolor="blue",  # Cor da área entre os botões
-                gripcount=10,  # Número de "grips" (indicadores)
-                gripcolor="red",  # Cor dos "grips" (indicadores)
-                arrowcolor="green",  # Cor das setas
-                bordercolor="gray"  # Cor da borda
-                )	
-                '''
+        self.canvas.configure(bg=getenv("SECOND_COLOR"),  highlightthickness  = 0)
