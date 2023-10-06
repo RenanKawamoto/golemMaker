@@ -14,6 +14,8 @@ class HomeScreen(Component, Frame):
         RouteButton(self, text="Rodar", to_where="run").place(relx=0.5, rely=0.5, anchor="s")
         RouteButton(self, text="Editar", to_where="edit").place(relx=0.5, rely=0.7, anchor="s")
         RouteButton(self, text="Sobre", to_where="about").place(relx=0.5, rely=0.9, anchor="s")
+        
+        self.local_style_config()
 
     def local_style_config(self):
         self.local_style.configure(

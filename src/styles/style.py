@@ -16,6 +16,20 @@ def global_style_config(root):
     global_style.configure("TFrame", background=FIRST_COLOR)
     #-----------------------------------------------------------#
     
+    #--------------------------TCanvas--------------------------#
+    global_style.configure("TCanvas", background=FIRST_COLOR)
+    #-----------------------------------------------------------#
+    
+     #------------------------TScrollbar------------------------#
+    global_style.configure("TScrollbar", background=SECOND_COLOR, troughcolor=FIRST_COLOR, arrowcolor=THIRD_COLOR)
+    
+    global_style.map("Vertical.TScrollbar",
+        background=[("active", SECOND_COLOR)],
+        troughcolor=[("active", FIRST_COLOR)],
+        arrowcolor=[("active", FOURTH_COLOR)]
+    )
+    #-----------------------------------------------------------#
+    
     #--------------------------TButton--------------------------#
     global_style.configure("TButton", background=THIRD_COLOR, foreground=FIRST_COLOR, relief="flat", font=("calibri", 15))
     
@@ -36,5 +50,7 @@ def global_style_config(root):
     #----------------------Subtitle.TLabel----------------------#
     global_style.configure("Subtitle.TLabel", background=FIRST_COLOR, foreground=SECOND_COLOR, font=("calibri", 12, "italic"))
     #-----------------------------------------------------------#
+    
+    
     
     

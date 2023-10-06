@@ -16,6 +16,8 @@ class RouteButton(Component, Button):
                 command=lambda: self.find_parent_router().show_screen(to_where),
                 style="RouteButton.TButton"
         )
+        
+        self.local_style_config()
 
     def local_style_config(self):
         self.local_style.configure(

@@ -15,6 +15,8 @@ class AboutScreen(Component, Frame):
         "seu dia a dia\"").place(relx=0.5, rely=0.18, anchor="n")
         Label(self, style="Subtitle.TLabel", text="Criado por: Renan Kawamoto da Rocha").place(relx=0.5, rely=0.7, anchor="center")
         RouteButton(self, text="Voltar", to_where="home").place(relx=0.5, rely=0.9, anchor="s")
+        
+        self.local_style_config()
 
     def local_style_config(self):
         self.local_style.configure(
