@@ -5,6 +5,7 @@ class Component(ABC):
     def __init__(self, parent):
         self.parent = parent
         self.local_style = Style()
+        self.local_vars_set()
 
     def find_parent_router(self):
         _current_parent = self.parent
@@ -14,4 +15,7 @@ class Component(ABC):
             _current_parent = _current_parent.parent
 
     def local_style_config(self):
+        ...
+        
+    def local_vars_set(self):
         ...

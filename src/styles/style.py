@@ -51,6 +51,9 @@ def global_style_config(root):
     global_style.configure("Subtitle.TLabel", background=FIRST_COLOR, foreground=SECOND_COLOR, font=("calibri", 12, "italic"))
     #-----------------------------------------------------------#
     
+    #----------------------------TEntry-------------------------#
+    global_style.configure("TEntry", background=FOURTH_COLOR, foreground=FOURTH_COLOR, font=("calibri", 29, "italic"))
+    #-----------------------------------------------------------#
     
     
     
