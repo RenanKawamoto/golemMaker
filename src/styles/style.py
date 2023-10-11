@@ -52,7 +52,7 @@ def global_style_config(root):
     #-----------------------------------------------------------#
     
     #----------------------------TEntry-------------------------#
-    global_style.configure("TEntry", background=FOURTH_COLOR, foreground=FOURTH_COLOR, font=("calibri", 29, "italic"))
+    global_style.configure("TEntry", foreground=FOURTH_COLOR, fieldbackground=FIRST_COLOR ,font=("calibri", 29, "italic"))
     #-----------------------------------------------------------#
     
     
