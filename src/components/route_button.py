@@ -2,12 +2,7 @@ from tkinter.ttk import Button
 from src.abstract_classes.component import Component
 
 class RouteButton(Component, Button):
-    def __init__(self, parent, text, to_where, text_size=15, padding=5, background_color="#9A3B3B", text_color="white"):
-        self._background_color = background_color
-        self._text_color = text_color
-        self._text_size = text_size
-        self._padding = padding
-
+    def __init__(self, parent, text, to_where):
         Component.__init__(self, parent)
         Button.__init__(
                 self, 
