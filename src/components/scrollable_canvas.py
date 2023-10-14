@@ -35,6 +35,10 @@ class ScrollableCanvas(Component, Frame):
         self.canvas.config(scrollregion=self.canvas.bbox("all"))
         self.update_idletasks()
 
+    def remove_component_in_canvas_grid(self, row, column):
+        _component = self.inner_frame.grid_slaves(row=row, column=column)
+        _component[0].destroy()
+
     def on_mousewheel(self, event):
         if event.delta == 120:
             self.canvas.yview_scroll(-1, "units")
