@@ -19,7 +19,9 @@ class ScrollableCanvas(Component, Frame):
         
         self.canvas.create_window((0, 0), window=self.inner_frame, anchor="nw")
 
-        self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)	
+        self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)
+        self.canvas.bind_all("<Button-4>", self.on_mousewheel)
+        self.canvas.bind_all("<Button-5>", self.on_mousewheel)
         
         self.local_style_config()
               
@@ -40,9 +42,9 @@ class ScrollableCanvas(Component, Frame):
         _component[0].destroy()
 
     def on_mousewheel(self, event):
-        if event.delta == 120:
+        if event.delta == 120 or event.num==4:
             self.canvas.yview_scroll(-1, "units")
-        elif event.delta == -120:
+        elif event.delta == -120 or event.num==5:
             self.canvas.yview_scroll(1, "units")
 
     def local_style_config(self):
