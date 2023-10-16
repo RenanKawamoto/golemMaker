@@ -34,7 +34,7 @@ class CreateScreen(Component, Frame):
         self.current_row += 1  
         self.scrollable_canvas.remove_component_in_canvas_grid(row=self.current_row-1, column=1)
         self.scrollable_canvas.add_component_in_canvas_grid(LabelAndEntry, row=self.current_row, column=0, label_text="Linha de comando", text_variable=self.teste, entry_width=1)
-        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row, column=1, text="+", command=self.create_command)
+        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row, column=1, text="+", command=self.create_command_row)
     
     def local_style_config(self):
         #self.entry_file_name.configure(width=100)
