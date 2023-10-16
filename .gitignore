@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+public/golens_scripts
 build/
 develop-eggs/
 dist/
