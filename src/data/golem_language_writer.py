@@ -8,7 +8,11 @@ class GolemLanguageWriter:
         self.file_name = file_name
         
     def create_golem_script(self):
-        with open(self.path + self.file_name_with_extension , "x") as file:
+        try:
+            with open(self.path + self.file_name_with_extension , "x") as file:
+                return True
+        except IOError:
+            return False
 
     def golem_script_fill(self):
         with open(self.path + self.file_name_with_extension, "a") as file:
