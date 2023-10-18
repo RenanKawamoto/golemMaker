@@ -6,13 +6,14 @@ class GolemLanguageTranslator:
         self.file_name = file_name
         self.file_name_with_extension = file_name + getenv("GOLENS_SCRIPTS_EXTENSIONS")
         
+    @staticmethod
     def _split_in_bar(array):
         return array.split("/")
         
     def golem_script_to_dict(self):
         with open(self.path + self.file_name_with_extension, "r") as file:       
             raw_lines = file.readlines()
-            split_lines = list(map(_split_in_bar, raw_lines))
+            split_lines = list(map(self._split_in_bar, raw_lines))
             result = []
             for row in split_lines:
                 current_row = {}
