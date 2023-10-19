@@ -10,6 +10,7 @@ __pycache__/
 .Python
 public/golens_scripts
 build/
+public/golens_scripts/
 develop-eggs/
 dist/
 downloads/
