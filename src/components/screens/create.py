@@ -4,23 +4,20 @@ from src.abstract_classes.component import Component
 from src.components.route_button import RouteButton
 from src.components.scrollable_canvas import ScrollableCanvas
 from src.components.label_and_entry import LabelAndEntry
+from src.components.combo_box_and_entry_for_create_golem import ComboboxAndEntryForCreateGolem
 
 class CreateScreen(Component, Frame):
     def __init__(self, parent):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
-      
-        self.scrollable_canvas_width = 350
-        self.scrollable_canvas_height = 300
-        self.entry_file_name_width = 44
-             
-             
+       
         self.label_and_entry = LabelAndEntry(self, label_text="Nome do golem: ", text_variable=self.file_name, entry_width=self.entry_file_name_width)
         self.label_and_entry.place(relx=0.866, rely=0.1, anchor="ne")
       
         self.scrollable_canvas = ScrollableCanvas(self, width=self.scrollable_canvas_width, height=self.scrollable_canvas_height)
         self.scrollable_canvas.place(relx=0.5, rely=0.15, anchor="n")
-        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row, column=1, text="+", command=self.create_command_row)
+        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row+1, column=1, text="Adicionar comando +", command=self.create_command_row, width=self.button_add_command_width)
+        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row+2, column=0, text="🗑", command=self.delete_last_command_row, width=self.button_delete_command_width)
         
         self.route_button_home = RouteButton(self, text="Voltar", to_where="home")
         self.route_button_home.place(relx=0.25, rely=0.95, anchor="s")
@@ -31,11 +28,16 @@ class CreateScreen(Component, Frame):
         self.local_style_config()
           
     def create_command_row(self):
-        self.current_row += 1  
-        self.scrollable_canvas.remove_component_in_canvas_grid(row=self.current_row-1, column=1)
-        self.scrollable_canvas.add_component_in_canvas_grid(LabelAndEntry, row=self.current_row, column=0, label_text="Linha de comando", text_variable=self.teste, entry_width=1)
-        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row, column=1, text="+", command=self.create_command_row)
+        self.current_row += 1
+        self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row+1, column=1, text="Adicionar comando +", command=self.create_command_row, width=self.button_add_command_width)
+        self.scrollable_canvas.add_component_in_canvas_grid(ComboboxAndEntryForCreateGolem, row=self.current_row, column=0)
     
+    def delete_last_command_row(self):
+        self.scrollable_canvas.remove_component_in_canvas_grid(row=self.current_row, column=1)
+        self.scrollable_canvas.remove_component_in_canvas_grid(row=self.current_row, column=1)
+        self.current_row -= 1
+        print(self.current_row)
+
     def local_style_config(self):
         #self.entry_file_name.configure(width=100)
         self.local_style.configure(
@@ -47,4 +49,9 @@ class CreateScreen(Component, Frame):
         self.file_name = StringVar()
         self.teste = StringVar()
         self.current_row = 0
-        
+
+        self.scrollable_canvas_width = 350
+        self.scrollable_canvas_height = 300
+        self.entry_file_name_width = 44
+        self.button_add_command_width = 26
+        self.button_delete_command_width = 8
