@@ -1,7 +1,10 @@
 {
     "home": "Home",
     "about": "About",
-	"create": "Create",
+	"golem": "Golem",
+	"create_golem": "CreateGolem",
 	"run": "Run",
-	"edit": "Edit"
+	"edit_golem": "EditGolem",
+	"table": "Table",
+	"create_table": "CreateTable"
 }

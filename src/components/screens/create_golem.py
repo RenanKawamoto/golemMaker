@@ -8,7 +8,7 @@ from src.components.combo_box_and_entry_for_create_golem import ComboboxAndEntry
 
 import pyautogui
 
-class CreateScreen(Component, Frame):    
+class CreateGolemScreen(Component, Frame):    
     def __init__(self, parent):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
@@ -25,7 +25,7 @@ class CreateScreen(Component, Frame):
         #self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row+1, column=1, text="Adicionar comando +", command=self.create_command_row, width=self.button_add_command_width)
         #self.scrollable_canvas.add_component_in_canvas_grid(Button, row=self.current_row+2, column=0, text="X", command=self.delete_last_command_row, width=self.button_delete_command_width)
         
-        self.route_button_home = RouteButton(self, text="Voltar", to_where="home")
+        self.route_button_home = RouteButton(self, text="Voltar", to_where="golem")
         self.route_button_home.place(relx=0.25, rely=0.95, anchor="s")
         
         self.button_create = Button(self, text="Criar", style="Create.TButton", command=lambda:print(self.file_name.get()))

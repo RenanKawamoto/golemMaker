@@ -7,4 +7,4 @@ class RunScreen(Component, Frame):
         Component.__init__(self, parent)
         Frame.__init__(self, parent)
         Label(self, text="Rodar").pack()
-        RouteButton(self, text="Voltar", to_where="home").pack()
+        RouteButton(self, text="Voltar", to_where="golem").pack()
